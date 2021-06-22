@@ -1,4 +1,3 @@
-//var http = require('http');
 var synaptic = require('synaptic');
 var A = new synaptic.Neuron();
 var B = new synaptic.Neuron();
@@ -21,10 +20,7 @@ for(var i = 0; i < 20000; i++)
 A.activate(1);
 var result = B.activate();
 
-console.log(result);
-console.log(A);
+console.log(result); // shows result of training B to 0 when A is set to 1
+console.log(A); // shows the current properties of the Neuron A
+console.log(B); // shows the current properties of the Neuron B
 
-//http.createServer(function (req, res) {
-  //res.writeHead(200, {'Content-Type': 'text/html'});
-  //res.end('Hello World!');
-//}).listen(8080);
