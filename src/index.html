@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <!-- import Bootstrap CSS -->
 	<title>Neuroidal Simulator</title>
 </head>
@@ -49,18 +50,85 @@
 			</div>
 		</form>
 	</div>
-	<div class="container" id="body" style="margin-top: 50px">
-		<div class = "output" align="right">
-			<h5 style="margin-right: 140px">Output</h5>
+<div class="container" id="body" >
+	<br/>
+	<div class="row">
+		<div class="col-sm-3">
+			<h5>DATA</h5>
+			<p>Which Data set<br> You want to use?</p></br>
+
+			<img src="images/Option%204.png" style="width: 10%;"/>
+			<img src="images/Option%202.png" style="width: 10%;"/></br><br>
+			<img src="images/Option%203.png" style="width: 10%;"/>
+		</div>
+		<div class="col-sm-2" ><h5>FEATURE</h5>
+			<p>Which Properties<br> Do you want to feed in?</p>
+		</div>
+		<div class="col-sm-4" >
+			<h5>1 HIDDEN LAYER</h5>
+			<hr noshade />
+			<div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+			<input type="number" id="number" value="0" />
+			<div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+			<p>2 Neurons</p></br> </br>
+
+		</div>
+		<div class="col-sm-3" >
+</br></br>
+		<h5 style="margin-right: 140px">Output</h5>
 			<p style="margin-right: 120px">Test loss: 0.5</p>
 			<p style="margin-right: 90px">Training loss: 0.5</p>
-			<img src="output.png" alt="example output" width="200" height="200" padding-top= 50px>
-			<p style="margin-right: 0px">Colors shows data, neuron <br> and weight values</p>
-			<input type="checkbox" id="testdata" name="testdata">
-  			<label for="testdata" style="margin-right: 80px">Show test data</label><br>
-  			<input type="checkbox" id="discretize" name="discretize">
-  			<label for="discretize" style="margin-right: 63px">Discretize output</label><br>
 		</div>
 	</div>
+
+
+	<div class="row">
+
+		<div class="col-sm-3">
+			<p>Ratio of training to<br>test data: </p> </br>
+
+			<input type="range" id="myRange" value="1" max="100"><span id="rangeValue">1</span>
+			<p>Noise: 0 </p> </br>
+			<input type="range" id="myRange" value="1" max="100"><span id="rangeValue">1</span>
+			<p>Batch Size: 0 </p> </br>
+			<input type="range" id="myRange" value="1" max="100"><span id="rangeValue">1</span>
+
+		</div>
+		<div class="col-sm-2">
+			<span>x1</span>
+			<img src="images/Input%201.png" style="width: 20%;" /></br></br>
+			<span>x2</span>
+			<img src="images/Input%202.png" style="width: 20%;" /></br></br>
+			<span>x3</span>
+			<img src="images/Input%203.png" style="width: 20%;" /></br></br>
+
+		</div>
+
+		<div class="col-sm-2">
+			<input type="text" size="10" name="user" placeholder=" "> <br><br></br></br>
+			<input type="text" size="10" name="user" placeholder=" ">
+
+		</div>
+		<div class="col-sm-1">
+			<img src="images/Input%201.png" style="width: 50%;" /> </br></br>
+			<img src="images/Input%202.png" style="width: 50%;" />
+		</div>
+
+		<div class="col-sm-3">
+
+			<div class = "output" align="right">
+				<img src="output.png" alt="example output" width="250" height="250" padding-top= 200px>
+				<p style="margin-right: 0px">Colors shows data, neuron <br> and weight values</p>
+				<input type="checkbox" id="testdata" name="testdata">
+				<label for="testdata" style="margin-right: 80px">Show test data</label><br>
+				<input type="checkbox" id="discretize" name="discretize">
+				<label for="discretize" style="margin-right: 63px">Discretize output</label><br>
+			</div>
+
+		</div>
+
+
+	</div>
+
 </body>
 </html>
