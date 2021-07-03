@@ -1,4 +1,4 @@
- const { Layer, Network }= window.synaptic
+const { Layer, Network }= window.synaptic
  const inputLayer = new Layer(1);
  const hiddenLayer = new Layer(2);
  const outputLayer = new Layer(3);
@@ -37,6 +37,3 @@ hiddenLayer.project(outputLayer);
  console.log(myNetwork.activate([0,1]));
  console.log(myNetwork.activate([1,0]));
  console.log(myNetwork.activate([1,1]));
-
-
-

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <span class="border-5">
+            <img src="images/pic_row_1.jpg" height="120" width="100%"/>
+        </span>
+    </div>
+    <div class="row">
+        <div class="col-sm-1" ><i class="fas fa-backward"></i></div>
+        <div class="col-sm-1" ><i class="fas fa-play"></i></div>
+        <div class="col-sm-1" ><i class="fas fa-forward"></i></div>
+        <div class="col-sm-1" >
+            Epoch <br/> <br/>
+            00000.00
+        </div>
+        <div class="col-sm-2" >
+            Learning Rate <br/> </br>
+            <select id="learningRate" name="learningRate">
+                <option value=""> </option>
+
+            </select>
+        </div>
+        <div class="col-sm-1" >
+            Activation <br/> </br>
+            <select id="Activation" name="Activation">
+                <option value=""> Sigmoid</option>
+            </select>
+        </div>
+
+            <div class="col-sm-1" >
+                Regularization <br/> </br>
+                <select id="Regularization" name="Regularization">
+                    <option value=""> L1</option>
+                </select>
+            </div>
+    </div>
+    <div class="row bg-light">
+        <span class="col-sm-12 border">
+        Row 3 <br/>
+        </span>
+    </div>
+</div>
+
+</body>
+</html>
