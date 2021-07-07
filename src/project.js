@@ -1,11 +1,20 @@
-function getSetUp() {
+function getNeuroids(){
 				  var x = document.getElementById("numberOfNeuroids").value;
-				  var y = document.getElementById("hiddenLayers").value;
-				  var values = [x,y];
+				  console.log(x);
+				  return x;
+			} //function to capture number of neuroids
+function getLayers(){
+				  var x = document.getElementById("hiddenLayers").value;
+				  console.log(x);
+				  return x;
+			} //function to capture number of layers 
+function getWeights() {
+				  var x = document.getElementById("weights").value;
+				  var values = [x];
 				  console.log(values);
 				  return values;
 
-			} //function to capture number of layers and 
+			} //function to capture number weights for hidden layers
 function getNeuroidProperties() {
 				  
 				  var kr = document.getElementById("KrValue").value;
@@ -15,4 +24,4 @@ function getNeuroidProperties() {
 				  var values = [kr, umbr, beta, maxcount];
 				  console.log(values);
 				  return values;
-			} //function to display name of Material
+			} //function to capture properties of Neuroid
