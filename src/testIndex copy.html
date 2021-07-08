@@ -21,60 +21,54 @@
 	</div>
 
 	<br>
+
 	<div class="container" id="headerControls" >
 		<div class="row">
-				<div class="col" id="playControls"> <!-- replay, play, fast forward buttons for the training -->
-						<div class="btn-group" role="group"> 
-							<button type="button" class="btn btn-danger btn-lg" id="replayButton"> 
-								<i class="fas fa-redo"></i> 
-							</button>
-							<button type="button" class="btn btn-danger btn-lg" id="playButton"> 
-								<i class="fas fa-play"></i> 
-							</button>
-							<button type="button" class="btn btn-danger btn-lg" id="fastForwardButton"> 
-								<i class="fas fa-fast-forward"></i>
-							</button>
-						</div>
+			<div class="col" id="playControls"> <!-- replay, play, fast forward buttons for the training -->
+				<div class="btn-group" role="group"> 
+					<button type="button" class="btn btn-danger btn-lg" id="replayButton"> 
+						<i class="fas fa-redo"></i> 
+					</button>
+					<button type="button" class="btn btn-danger btn-lg" id="playButton"> 
+						<i class="fas fa-play"></i> 
+					</button>
+					<button type="button" class="btn btn-danger btn-lg" id="fastForwardButton"> 
+						<i class="fas fa-fast-forward"></i>
+					</button>
 				</div>
-				<div class="col">
-					<form action = "/input">
-						<div class="form-row align-items-center">
-					    <div class="col-auto my-1">
-					      <label class="mr-sm-2" for="numberOfNeuroids">Number of Neuroids:</label>
-					      <input type="text" name="numberOfNeuroids" id="numberOfNeuroids" required>
-					  	</div>
-					  	<button type="submit" id="Layers" class="btn btn-danger" onclick="getNeuroids()"> Submit</button>
-					  	</div>
+			</div>
 
-				</div>
-				<div class="col">
-
-					<div class="form-row align-items-center">
-					    <div class="col-auto my-2">
-					      <label class="mr-sm-2" for="hiddenLayers">Number of Hidden Layers</label>
-					      <input type="text" name="hiddenLayers" id="hiddenLayers" required>
-					  	</div>
-					  <button type="submit" id="Layers" class="btn btn-danger" onclick="getLayers()"> Submit</button>
+			<div class="col">
+				<div class="form-row align-items-center">
+					<div class="col-auto my-1">
+						<label class="mr-sm-2" for="numberOfNeuroids">Number of Neuroids:</label>
+						<input type="text" name="numberOfNeuroids" id="numberOfNeuroids" required>
 					</div>
-
+					<button type="submit" id="Layers" class="btn btn-danger" onclick="getNeuroids()"> Submit</button>
 				</div>
-				<div class="col">
+			</div>
 
-					<div class="form-row align-items-center">
-					  <div class="col-auto my-2">
-					      <label class="mr-sm-2" for="weights">Weights for Layers (comma separated list)</label>
-					      <input type="text" name="weights" id="weights" required>
-					  </div>
-					  <button type="submit" id="Layers" class="btn btn-danger" onclick="getWeights()"> Submit</button>
+			<div class="col">
+				<div class="form-row align-items-center">
+					<div class="col-auto my-2">
+						<label class="mr-sm-2" for="hiddenLayers">Number of Hidden Layers</label>
+						<input type="text" name="hiddenLayers" id="hiddenLayers" required>
 					</div>
+				 <button type="submit" id="Layers" class="btn btn-danger" onclick="getLayers()"> Submit</button>
 				</div>
+			</div>
+
+			<div class="col">
+				<div class="form-row align-items-center">
+					<div class="col-auto my-2">
+						<label class="mr-sm-2" for="weights">Weights for Layers (comma separated list)</label>
+						<input type="text" name="weights" id="weights" required>
+					</div>
+					<button type="submit" id="Layers" class="btn btn-danger" onclick="getWeights()"> Submit</button>
+				</div>
+			</div>
 		</div>
 	</div>
-			
-				 
-					
-				
-
 
 <div class="container" id="body" >
 	<br/>
@@ -82,25 +76,27 @@
 		<div class="col-sm-3">
 			<h5>Build Your Neuroid(s)</h5>
 			<h6>Use this form to input data to customize!</h6>
-					<div class="form-group">
-						<label for="KrValue">Kr</label>
-							<input type="text" class="form-control" name="KrValue" id="KrValue" required>
-					</div>
-					<div class="form-group">
-						<label for="umbrValue">umbr</label>
-							<input type="text" class="form-control" name="umbrValue" id="umbrValue" required>
-					</div>
-					<div class="form-group">
-						<label for="BetaValue">Beta</label>
-							<input type="text" class="form-control" name="BetaValue" id="BetaValue" required>
-					</div>
-					<div class="form-group">
-						<label for="maxcountValue">Max Count</label>
-							<input type="text" class="form-control" name="maxcountValue" id="maxcountValue" required>	
-					</div>
+			<form action="{{ url_for('input') }}" method="POST">
+				<div class="form-group">
+					<label for="kr">Kr</label>
+					<input type="text" class="form-control" name="kr" id="kr" required>
+				</div>
+				<div class="form-group">
+					<label for="umbr">umbr</label>
+					<input type="text" class="form-control" name="umbr" id="umbr" required>
+				</div>
+				<div class="form-group">
+					<label for="beta">Beta</label>
+					<input type="text" class="form-control" name="beta" id="beta" required>
+				</div>
+				<div class="form-group">
+					<label for="maxcount">Max Count</label>
+					<input type="text" class="form-control" name="maxcount" id="maxcount" required>	
+				</div>
 				<br>
-				 <button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid" 
-				  onclick="getNeuroidProperties()">Submit</button>
+
+				<button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid">Submit</button>
+			</form>
 
 			
 		</div>
