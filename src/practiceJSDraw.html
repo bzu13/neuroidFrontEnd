@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JS Canvas Practice</title>
+
+
+<script>
+    var canvas;    // DOM object corresponding to the canvas
+    var graphics;  // 2D graphics context for drawing on the canvas
+
+    function setPixel(x, y, color, lineWidth)
+    {
+        graphics.fillStyle = color;
+        graphics.fillRect(x, y, lineWidth, lineWidth);
+    }
+
+
+    function drawLine(x1,y1,x2,y2,color,lineWidth) {
+        // TODO: your code here
+        var dy = y2 - y1;
+        var dx = x2 - x1;
+
+        var m = dy/dx;
+        var mInv = dx/dy;
+
+        if(dx == 0 && dy == 0)
+        {
+            setPixel(x1, y1, color);
+        }
+
+        else if (Math.abs(dx) >= Math.abs(dy))
+            {
+                if(x2 < x1)
+                {
+                    drawLine(x2, y2, x1, y1, color, lineWidth);
+                }
+
+                else
+                {    
+                    var yVar = y1;
+
+                    for (var x = x1; x <= x2; x++) 
+                    {
+                        setPixel(x, Math.round(yVar), color, lineWidth);
+                        yVar = yVar + m;
+                    }
+                }
+            }
+    
+        else
+            {
+                if(y2 < y1)
+                    {
+                        drawLine(x2, y2, x1, y1, color, lineWidth);
+                    }
+                
+                else
+                    
+                    {
+                        var xVar = x1;
+
+                        for (var y = y1; y <= y2; y++) 
+                        {
+                            setPixel(Math.round(xVar), y, color, lineWidth);
+                            xVar = xVar+ mInv;
+                        }
+                    }    
+            }
+
+    }
+
+
+    
+    
+    function draw() {
+        // TODO: your code here, using calls to drawLine only
+        //drawLine(80, 200, 300, 100, "red", 1);    // slope < 1 
+        //drawLine(300, 100, 80, 200, "purple", 1); // switch points - your code should still work
+        //drawLine(200, 80, 100, 300, "blue", 1);   // slope > 1  
+        //drawLine(80, 150, 280, 150, "green", 1);  // slope = 0
+        //drawLine(150, 80, 150, 280, "pink", 1);   // slope = ∞ 
+        var gridSize = 40;
+
+        for (var j = 0; j < canvas.height; j += gridSize) {
+          drawLine(0, j, canvas.width, j, "lightgray", 1);
+        }
+
+        for (var k = 0; k < canvas.width; k+= gridSize) {
+          drawLine(k, 0, k, canvas.height, "lightgray", 1);
+        }
+
+        drawLine(200, 100, 200, 300, "DarkTurquoise", 3);
+        drawLine(130, 110, 270, 290, "mediumblue", 3);
+        drawLine(270, 110, 130, 290, "mediumblue", 3);
+        drawLine(100, 200, 300, 200, "lightblue", 3);
+
+
+
+
+    }
+
+    function main() {
+        canvas = document.getElementById("theCanvas");
+        graphics = canvas.getContext("2d");
+        draw();  // draw something on the canvas
+    }
+</script>
+
+
+</head>
+<body onload="main()">
+    <canvas id="theCanvas" width="400" height="400" style="border: 1px solid lightgrey"></canvas>
+</body>
+</html>
