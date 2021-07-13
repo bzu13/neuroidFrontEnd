@@ -82,17 +82,20 @@
         var gridSize = 40;
 
         for (var j = 0; j < canvas.height; j += gridSize) {
-          drawLine(0, j, canvas.width, j, "lightgray", 1);
+          //drawLine(0, j, canvas.width, j, "lightgray", 1);
         }
 
         for (var k = 0; k < canvas.width; k+= gridSize) {
-          drawLine(k, 0, k, canvas.height, "lightgray", 1);
+          //drawLine(k, 0, k, canvas.height, "lightgray", 1);
         }
 
-        drawLine(200, 100, 200, 300, "DarkTurquoise", 3);
-        drawLine(130, 110, 270, 290, "mediumblue", 3);
-        drawLine(270, 110, 130, 290, "mediumblue", 3);
-        drawLine(100, 200, 300, 200, "lightblue", 3);
+        //drawLine(200, 100, 200, 300, "DarkTurquoise", 3); //(vertical line)
+        //drawLine(130, 110, 270, 290, "mediumblue", 3); //negative slope line
+        //drawLine(270, 110, 130, 290, "mediumblue", 3); //positive slope line
+        
+        drawLine(100, 200, 500, 200, "lightblue", 3); //horizontal line
+        drawLine(100, 100, 500, 100, "lightblue", 3); //horizontal line
+        drawLine(100, 300, 500, 300, "lightblue", 3); //horizontal line
 
 
 
@@ -109,6 +112,6 @@
 
 </head>
 <body onload="main()">
-    <canvas id="theCanvas" width="400" height="400" style="border: 1px solid lightgrey"></canvas>
+    <canvas id="theCanvas" width="540" height="400"></canvas>
 </body>
 </html>
