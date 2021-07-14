@@ -101,10 +101,10 @@ function getNeuroidProperties(neuroidNumber) {
         
         drawLine(0, 70, 330, 70, "lightblue", 3); //weight 1
         drawLine(0, 190, 330, 70, "pink", 3); //weight 2
-        drawLine(400, 70, 540, 70, "purple", 3); //output 1
-        drawLine(400, 190, 540, 190, "purple", 3); //output 2
-        drawLine(0, 70, 330, 190, "lightblue", 3); //weight 3
-        drawLine(0, 190, 330, 190, "pink", 3); //weight 4
+        //drawLine(400, 70, 540, 70, "purple", 3); //output 1
+        //drawLine(400, 190, 540, 190, "purple", 3); //output 2
+        //drawLine(0, 70, 330, 190, "lightblue", 3); //weight 3
+        //drawLine(0, 190, 330, 190, "pink", 3); //weight 4
 
        
         //drawLine(0, 300, 330, 300, "lightblue", 3); //horizontal line
