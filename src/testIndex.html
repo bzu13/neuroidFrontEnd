@@ -22,6 +22,7 @@
 				if(oldValue < number){
 					$("#neuronCount").text(number);
 					$( "#neuron" ).clone().appendTo( "#neuronArea" );
+					main();
 				} else if(oldValue > number){
 					$( "#neuron" ).remove();
 				}
@@ -195,12 +196,15 @@
 			<div class="col-sm-2"><h5>FEATURE</h5>
 				<p>Which Properties<br> Do you want to feed in?</p>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-8">
 				<h5>1 HIDDEN LAYER</h5>
 				<hr noshade="">
 				<input type="number" id="number" value="1" min="1" max="3" class="col-sm-4"/>
 				<p><span id="neuronCount">1</span> Neurons</p></br> </br>
 			</div>	
+			<div class="col-sm-2"><h5>OUTPUT</h5>
+				<p>Test loss: 0.5<br> Training loss: 0.5</p>
+			</div>
 		</div>	
 		<div class="row">
 			<div class="col-sm-2" id = "ratioSliders">
@@ -277,98 +281,98 @@
 					 </div>
 				</span>
 				<span>
-					<i class="fas fa-square fa-5x" id="neuroid3"></i>
-					<div class="btn-group dropright">
-		  					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    					X3
-		  					</button>
-		  				<div class="dropdown-menu">
-		   					 <!-- Dropdown menu links -->
-		   					 <form class="px-4 py-3">
-		   					 	<div class="form-group">
-									<label for="KrValue">Kr</label>
-										<input type="text" class="form-control" name="KrValue" id="KrValue">
-								</div>
-								<div class="form-group">
-									<label for="umbrValue">umbr</label>
-										<input type="text" class="form-control" name="umbrValue" id="umbrValue">
-								</div>
-								<div class="form-group">
-									<label for="BetaValue">Beta</label>
-										<input type="text" class="form-control" name="BetaValue" id="BetaValue">
-								</div>
-								<div class="form-group">
-									<label for="maxcountValue">Max Count</label>
-										<input type="text" class="form-control" name="maxcountValue" id="maxcountValue">	
-								</div>
-								<button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid" 
-					  			onclick="getNeuroidProperties(3)">Submit</button>
-		   					 </form>
-		  				</div>
-					 </div>
-				</span>
-				<span>
-					<i class="fas fa-square fa-5x" id="neuroid4"></i>
-					<div class="btn-group dropright">
-		  					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    					X4
-		  					</button>
-		  				<div class="dropdown-menu">
-		   					 <!-- Dropdown menu links -->
-		   					 <form class="px-4 py-3">
-		   					 	<div class="form-group">
-									<label for="KrValue">Kr</label>
-										<input type="text" class="form-control" name="KrValue" id="KrValue">
-								</div>
-								<div class="form-group">
-									<label for="umbrValue">umbr</label>
-										<input type="text" class="form-control" name="umbrValue" id="umbrValue">
-								</div>
-								<div class="form-group">
-									<label for="BetaValue">Beta</label>
-										<input type="text" class="form-control" name="BetaValue" id="BetaValue">
-								</div>
-								<div class="form-group">
-									<label for="maxcountValue">Max Count</label>
-										<input type="text" class="form-control" name="maxcountValue" id="maxcountValue">	
-								</div>
-								<button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid" 
-					  			onclick="getNeuroidProperties(4)">Submit</button>
-		   					 </form>
-		  				</div>
-					 </div>
-				</span>
-				<span>
-					<i class="fas fa-square fa-5x" id="neuroid5"></i>
-					<div class="btn-group dropright">
-		  					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    					X5
-		  					</button>
-		  				<div class="dropdown-menu">
-		   					 <!-- Dropdown menu links -->
-		   					 <form class="px-4 py-3">
-		   					 	<div class="form-group">
-									<label for="KrValue">Kr</label>
-										<input type="text" class="form-control" name="KrValue" id="KrValue">
-								</div>
-								<div class="form-group">
-									<label for="umbrValue">umbr</label>
-										<input type="text" class="form-control" name="umbrValue" id="umbrValue">
-								</div>
-								<div class="form-group">
-									<label for="BetaValue">Beta</label>
-										<input type="text" class="form-control" name="BetaValue" id="BetaValue">
-								</div>
-								<div class="form-group">
-									<label for="maxcountValue">Max Count</label>
-										<input type="text" class="form-control" name="maxcountValue" id="maxcountValue">	
-								</div>
-								<button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid" 
-					  			onclick="getNeuroidProperties(5)">Submit</button>
-		   					 </form>
-		  				</div>
-					 </div>
-				</span>
+				<i class="fas fa-square fa-5x" id="neuroid3" style="color: lightgray;"> </i>
+				<div class="btn-group dropright">
+	  					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+	    					X3
+	  					</button>
+	  				<div class="dropdown-menu">
+	   					 <!-- Dropdown menu links -->
+	   					 <form class="px-4 py-3">
+	   					 	<div class="form-group">
+								<label for="KrValue">Kr</label>
+									<input type="text" class="form-control" name="KrValue" id="KrValue">
+							</div>
+							<div class="form-group">
+								<label for="umbrValue">umbr</label>
+									<input type="text" class="form-control" name="umbrValue" id="umbrValue">
+							</div>
+							<div class="form-group">
+								<label for="BetaValue">Beta</label>
+									<input type="text" class="form-control" name="BetaValue" id="BetaValue">
+							</div>
+							<div class="form-group">
+								<label for="maxcountValue">Max Count</label>
+									<input type="text" class="form-control" name="maxcountValue" id="maxcountValue">	
+							</div>
+							<button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid" 
+				  			onclick="getNeuroidProperties(3)">Submit</button>
+	   					 </form>
+	  				</div>
+				 </div>
+			</span>
+			<span>
+				<i class="fas fa-square fa-5x" id="neuroid4" style="color: lightgray;"></i>
+				<div class="btn-group dropright">
+	  					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+	    					X4
+	  					</button>
+	  				<div class="dropdown-menu">
+	   					 <!-- Dropdown menu links -->
+	   					 <form class="px-4 py-3">
+	   					 	<div class="form-group">
+								<label for="KrValue">Kr</label>
+									<input type="text" class="form-control" name="KrValue" id="KrValue">
+							</div>
+							<div class="form-group">
+								<label for="umbrValue">umbr</label>
+									<input type="text" class="form-control" name="umbrValue" id="umbrValue">
+							</div>
+							<div class="form-group">
+								<label for="BetaValue">Beta</label>
+									<input type="text" class="form-control" name="BetaValue" id="BetaValue">
+							</div>
+							<div class="form-group">
+								<label for="maxcountValue">Max Count</label>
+									<input type="text" class="form-control" name="maxcountValue" id="maxcountValue">	
+							</div>
+							<button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid" 
+				  			onclick="getNeuroidProperties(4)">Submit</button>
+	   					 </form>
+	  				</div>
+				 </div>
+			</span>
+			<span>
+				<i class="fas fa-square fa-5x" id="neuroid5" style="color: lightgray;"></i>
+				<div class="btn-group dropright">
+	  					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+	    					X5
+	  					</button>
+	  				<div class="dropdown-menu">
+	   					 <!-- Dropdown menu links -->
+	   					 <form class="px-4 py-3">
+	   					 	<div class="form-group">
+								<label for="KrValue">Kr</label>
+									<input type="text" class="form-control" name="KrValue" id="KrValue">
+							</div>
+							<div class="form-group">
+								<label for="umbrValue">umbr</label>
+									<input type="text" class="form-control" name="umbrValue" id="umbrValue">
+							</div>
+							<div class="form-group">
+								<label for="BetaValue">Beta</label>
+									<input type="text" class="form-control" name="BetaValue" id="BetaValue">
+							</div>
+							<div class="form-group">
+								<label for="maxcountValue">Max Count</label>
+									<input type="text" class="form-control" name="maxcountValue" id="maxcountValue">	
+							</div>
+							<button type="submit" class="btn btn-danger" id="sumbitCustomNeuroid" 
+				  			onclick="getNeuroidProperties(5)">Submit</button>
+	   					 </form>
+	  				</div>
+				 </div>
+			</span>
 			</div>
 
 			<div class="col-sm-3" id="NeuroidVisualization">
@@ -378,16 +382,18 @@
 
 			<div class="col-sm-1" id = "rightBoxes">
 				<div class="row" id="neuronArea">
-					<div class="col">
-					<span id="neuron">
+					<div class="col" id="neuron">
+					<span >
 							<i class="fas fa-square fa-5x" id="innerNeuroid1"></i>
+							<br>
+							<i class="fas fa-square fa-5x" id="innerNeuroid2"></i>
 					  </span>
 					</div>
 					
 				</div>
 			</div>
 
-			<div class="col-5" id = "output" style="padding-left:225px;>
+			<div class="col-5" id = "output" style="padding-left:225px;">
 				<div class="output">
 					<img src="output.png" alt="example output" width="250" height="250">
 					<p style="margin-right: 0px">Colors shows data, neuron <br> and weight values</p>

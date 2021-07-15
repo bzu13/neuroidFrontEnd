@@ -93,18 +93,26 @@ function getNeuroidProperties(neuroidNumber) {
 
     
     
-    function draw(){
+    function drawWeights(offset){
 
         //drawLine(200, 100, 200, 300, "DarkTurquoise", 3); //(vertical line)
         //drawLine(130, 110, 270, 290, "mediumblue", 3); //negative slope line
         //drawLine(270, 110, 130, 290, "mediumblue", 3); //positive slope line
+        //var startpos = 70;
+        //drawLine(0, startpos, 330, 70, "lightblue", 3); //weight 1
+        //for (var i = 0; i < document.getElementById("number").value; i++) {
+        //	drawLine(0, startpos, 330, 70, "lightblue", 3); //weight 1
+        //	startpos += 120;
+        //}
         
-        drawLine(0, 70, 330, 70, "lightblue", 3); //weight 1
-        drawLine(0, 190, 330, 70, "pink", 3); //weight 2
-        //drawLine(400, 70, 540, 70, "purple", 3); //output 1
-        //drawLine(400, 190, 540, 190, "purple", 3); //output 2
-        //drawLine(0, 70, 330, 190, "lightblue", 3); //weight 3
-        //drawLine(0, 190, 330, 190, "pink", 3); //weight 4
+
+        var startpos = 70;
+        drawLine(0, startpos+offset, 330, 70+offset, "lightblue", 3); //weight 1
+
+        drawLine(0, 190+offset, 300, 70+offset, "pink", 3); //weight 2
+        
+        drawLine(0, 70+offset, 300, 100+offset, "lightblue", 3); //weight 3
+        drawLine(0, 190+offset, 300, 100+offset, "pink", 3); //weight 4
 
        
         //drawLine(0, 300, 330, 300, "lightblue", 3); //horizontal line
@@ -114,8 +122,21 @@ function getNeuroidProperties(neuroidNumber) {
 
     }
 
+    function drawOutputs(){
+    	drawLine(320, 70, 540, 70, "lightblue", 3); //output 1
+        drawLine(320, 130, 540, 130, "pink", 3); //output 2
+
+    }
+
     function main() {
         canvas = document.getElementById("theCanvas");
         graphics = canvas.getContext("2d");
-        draw();  // draw something on the canvas
+        drawWeights(0);  // draw something on the canvas
+        drawOutputs();
+        if (document.getElementById("number") == 2) {
+        	drawWeights(100);
+        }
+       
+
+
     }
