@@ -13,7 +13,8 @@
 	<script src="https://kit.fontawesome.com/6852c7cebf.js" crossorigin="anonymous"></script> 
 	<!-- import  FontAwesome For icons-->
 	<script type="text/javascript" src="project.js"></script> <!-- connect JavaScript functions-->
-	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script> 
+	<!-- import script for chart.js -->
 	<script>
 		$(document).ready(function(){
 			$("#number").change(function(){
@@ -226,7 +227,7 @@
 		  					</button>
 		  				<div class="dropdown-menu">
 		   					 <!-- Dropdown menu links -->
-		   					 <form class="px-4 py-3">
+		   					 <form class="px-4 py-3" action="{{ url_for('input') }}" method="POST">
 		   					 	<div class="form-group">
 									<label for="KrValue">Kr</label>
 										<input type="text" class="form-control" name="KrValue" id="KrValue">
@@ -257,7 +258,7 @@
 		  					</button>
 		  				<div class="dropdown-menu">
 		   					 <!-- Dropdown menu links -->
-		   					 <form class="px-4 py-3">
+		   					 <form class="px-4 py-3" action="{{ url_for('input') }}" method="POST">>
 		   					 	<div class="form-group">
 									<label for="KrValue">Kr</label>
 										<input type="text" class="form-control" name="KrValue" id="KrValue">
@@ -395,12 +396,55 @@
 
 			<div class="col-5" id = "output" style="padding-left:225px;">
 				<div class="output">
-					<img src="output.png" alt="example output" width="250" height="250">
+					<canvas id="outputChart" width="500" height="500" style="background: black;"></canvas>
+					<p id="outputData">1,2,3,4,5,6,7,8,9,10</p>
+					<script>
+					var dataList = document.getElementById('outputData').innerHTML;
+					var values = dataList.split(',');
+					var time = [];
+						for (var i = 0; i <= values.length; i++) {
+							time[i] = i;
+						}
+
+						
+					var ctx = document.getElementById('outputChart').getContext('2d');
+					var outputChart = new Chart(ctx, {
+					    type: "line",
+						  data: {
+						  	labels: time,
+						  	datasets: [{
+						  			  label: "Neuroidal Output",
+								      backgroundColor: "rgb(255, 215, 0)",
+								      borderColor: "rgb(255, 215, 0)",
+								      pointStyle: "line",
+								      data: values
+								    }]
+						  },
+						  options: {
+						  	scales: {
+					            y: {
+					                beginAtZero: true
+					            }
+					        },
+					        legend: {
+            						display: true
+            						
+         						},
+         				    tooltips: {
+            						enabled: false
+        						 }
+						  }
+					});
+					
+					console.log(time);
+					console.log(values);
+					</script>
 					<p style="margin-right: 0px">Colors shows data, neuron <br> and weight values</p>
 					<input type="checkbox" id="testdata" name="testdata">
 					<label for="testdata" style="margin-right: 80px">Show test data</label><br>
 					<input type="checkbox" id="discretize" name="discretize">
 					<label for="discretize" style="margin-right: 63px">Discretize output</label><br>
+					
 				</div>
 
 			</div>
